@@ -6,7 +6,7 @@ courses = [
 	{ 'code' : 'BLM4520' , 'gr' : '1'},
 	{ 'code' : 'BLM4821' , 'gr' : '1'}
 ]
-cookie = "0000NHdtBXv9R7Qik1ES4tB2wnR:17bvem044"
+cookie = ""
 #--------------------------------------
 
 course_ids = []
@@ -52,6 +52,8 @@ def pick_courses():
 		except:
 			print("Split Err,Not Login probably")
 	pick_courses()
-
-find_course_ids()
+try : 
+	find_course_ids()
+except :
+	exit("Pls change cookie and control internet connection...")
 pick_courses()
