@@ -11,6 +11,6 @@ courses = [
 ### Bu kısmı USIS sistemine giriş yaptıktan sonra size özel oluşturulan JSSESIONID isimli cookie ile değiştiriniz.
 
 ```
-cookie = "0000NHdtBXv9R7Qik1ES4tB2wnR:17bvem044"
+cookie = ""
 
 ```
