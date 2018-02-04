@@ -3,10 +3,23 @@ import json
 from bs4 import BeautifulSoup
 
 _URL = "http://usis.yildiz.edu.tr/StdEnrollCourse.do"
-
-def find_course_ids(headers, courses):
+_HEADERS = {
+	'Accept': 'text/html, application/xhtml+xml, image/jxr',
+	'Accept-Encoding': 'gzip, deflate',
+	'Accept-Language': 'tr,en-US;q=0.7,en;q=0.3',
+	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299',
+	'Cookie': "JSESSIONID=",
+	'Content-Type': 'application/x-www-form-urlencoded'
+}
+_PAYLOAD = {
+	'coursetype':'0',
+	'courseprefix':'',
+	'courseindex':'',
+	'button':'Ekle+%3E%3E'
+}
+def find_course_ids(courses):
 	course_ids = []
-	page = requests.get(_URL, headers=headers)
+	page = requests.get(_URL, headers=_HEADERS)
 	soup = BeautifulSoup(page.text,"html.parser")
 	user_name = soup.find('span',{'class' : "logintitle"}).text
 	user_name = ' '.join(user_name.split())
@@ -22,17 +35,22 @@ def find_course_ids(headers, courses):
 
 	return course_ids
 
-def pick_courses(course_ids, headers, payload):
+def pick_courses(course_ids):
 	for course_id in course_ids:
-		payload['courseindex'] = course_id
-		r = requests.post(_URL, headers=headers, data = payload)
+		_PAYLOAD['courseindex'] = course_id
+		r = requests.post(_URL, headers=_HEADERS, data = _PAYLOAD)
 		soup = BeautifulSoup(r.text,"html.parser")
 		try:
-			print(course_id,soup.find('div',{"class" : "warning"}).text.strip())
+			msg = soup.find('div',{"class" : "warning"}).text.strip()
+			print(course_id, msg)
+			if msg.find('eklendi') != -1:
+				course_ids.remove(course_id)
+				print("removed")
+
 		except:
 			print("Split Err,Not Login probably")
 
-	pick_courses(course_ids, headers, payload)
+	pick_courses(course_ids)
 
 def load_config(filename):
 	with open(filename) as config_json:
@@ -45,27 +63,15 @@ def load_config(filename):
 def main():
 	course_ids = []
 	cookie, courses = load_config('config.json')
-	headers = {
-		'Accept': 'text/html, application/xhtml+xml, image/jxr',
-		'Accept-Encoding': 'gzip, deflate',
-		'Accept-Language': 'tr,en-US;q=0.7,en;q=0.3',
-		'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299',
-		'Cookie': "JSESSIONID={}".format(cookie),
-		'Content-Type': 'application/x-www-form-urlencoded'
-	}
-	payload = {
-		'coursetype':'0',
-		'courseprefix':'',
-		'courseindex':'',
-		'button':'Ekle+%3E%3E'
-	}
+	_HEADERS['Cookie'] = "JSESSIONID={}".format(cookie)
+
 	try:
-		course_ids = find_course_ids(headers, courses)
+		course_ids = find_course_ids(courses)
 		print(course_ids)
 	except:
 		exit("Pls change cookie and control internet connection...")
 
-	pick_courses(course_ids, headers, payload)
+	pick_courses(course_ids)
 
 if __name__ == "__main__":
 	main()
