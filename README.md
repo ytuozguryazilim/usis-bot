@@ -1,4 +1,18 @@
 # Basit USIS ders seçim botu
+
+# Kurulum
+
+```bash
+      $ git clone https://github.com/Emre-Kul/USISBOT
+      $ cd USISBOT
+      $ virtualenv venv
+      $ source venv/bin/activate
+(venv)$ pip install -r requirements.txt
+(venv)$ # Bu kisimda config.json dosyasini guncellemeyi unutmayin.
+(venv)$ python usbot.py 
+```
+
+## Alt kisimdaki kisimlari config.json icerisine uygulayin.
 ### Bu kısma eklemek istediğiniz derslerin kodu ve grubunu örnekteki gibi giriniz.
 
 ```
