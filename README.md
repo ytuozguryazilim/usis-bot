@@ -27,6 +27,3 @@ courses = [
 cookie = ""
 
 ```
-#### Cokkie'yi gösterildiği şekilde bulabilirsiniz.
-![Chrome Cookie](https://thumbs.gfycat.com/OptimisticShallowCopperbutterfly-size_restricted.gif)
-
