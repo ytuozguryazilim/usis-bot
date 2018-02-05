@@ -24,7 +24,7 @@ courses = [
 
 ### Bu kısmı USIS sistemine giriş yaptıktan sonra size özel oluşturulan JSSESIONID isimli cookie ile değiştiriniz.
 #### Cokkie'yi gösterildiği şekilde bulabilirsiniz.
-![image]<iframe src='https://gfycat.com/ifr/OptimisticShallowCopperbutterfly' frameborder='0' scrolling='no' width='1014' height='772' allowfullscreen></iframe>
+![Chrome Cookie](https://thumbs.gfycat.com/OptimisticShallowCopperbutterfly-size_restricted.gif)
 ```
 cookie = ""
 
