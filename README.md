@@ -23,9 +23,10 @@ courses = [
 ```
 
 ### Bu kısmı USIS sistemine giriş yaptıktan sonra size özel oluşturulan JSSESIONID isimli cookie ile değiştiriniz.
-#### Cokkie'yi gösterildiği şekilde bulabilirsiniz.
-![Chrome Cookie](https://thumbs.gfycat.com/OptimisticShallowCopperbutterfly-size_restricted.gif)
 ```
 cookie = ""
 
 ```
+#### Cokkie'yi gösterildiği şekilde bulabilirsiniz.
+![Chrome Cookie](https://thumbs.gfycat.com/OptimisticShallowCopperbutterfly-size_restricted.gif)
+
