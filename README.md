@@ -9,10 +9,10 @@
       $ source venv/bin/activate
 (venv)$ pip install -r requirements.txt
 (venv)$ # Bu kisimda config.json dosyasini guncellemeyi unutmayin.
-(venv)$ python usbot.py 
+(venv)$ python main.py 
 ```
 
-## Alt kisimdaki kisimlari config.json icerisine uygulayin.
+## Alt kisimlari config.json icerisine uygulayin.
 ### Bu kısma eklemek istediğiniz derslerin kodu ve grubunu örnekteki gibi giriniz.
 
 ```
@@ -23,7 +23,8 @@ courses = [
 ```
 
 ### Bu kısmı USIS sistemine giriş yaptıktan sonra size özel oluşturulan JSSESIONID isimli cookie ile değiştiriniz.
-
+#### Cokkie'yi gösterildiği şekilde bulabilirsiniz.
+<iframe src='https://gfycat.com/ifr/OptimisticShallowCopperbutterfly' frameborder='0' scrolling='no' width='1014' height='772' allowfullscreen></iframe>
 ```
 cookie = ""
 
